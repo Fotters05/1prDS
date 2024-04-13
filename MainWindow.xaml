@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktika1_DataSet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="535" Background="Green">
+        Title="MainWindow" Height="450" Width="800" Background="Green">
     <Grid>
         <DataGrid x:Name="SushiDataGrid"/>
-        <Button Content="SUSHIBARS"  HorizontalAlignment="Left" Height="158" Margin="23,34,0,0" VerticalAlignment="Top" Width="224" Click="Button_Click"/>
-        <Button Content="SUSHISETS" HorizontalAlignment="Left" Height="158" Margin="270,34,0,0" VerticalAlignment="Top" Width="231" Click="Button_Click_1"/>
-        <Button Content="CLIENTS" HorizontalAlignment="Left" Height="163" Margin="23,207,0,0" VerticalAlignment="Top" Width="224" Click="Button_Click_2"/>
-        <Button Content="INFOBARS" HorizontalAlignment="Left" Height="163" Margin="270,207,0,0" VerticalAlignment="Top" Width="231" Click="Button_Click_3"/>
+        <Button Content="SUSHIBARS"  HorizontalAlignment="Left" Height="202" Margin="10,10,0,0" VerticalAlignment="Top" Width="376" Click="Button_Click"/>
+        <Button Content="SUSHISETS" HorizontalAlignment="Left" Height="202" Margin="391,10,0,0" VerticalAlignment="Top" Width="399" Click="Button_Click_1"/>
+        <Button Content="CLIENTS" HorizontalAlignment="Left" Height="195" Margin="10,217,0,0" VerticalAlignment="Top" Width="376" Click="Button_Click_2"/>
+        <Button Content="INFOBARS" HorizontalAlignment="Left" Height="195" Margin="391,217,0,0" VerticalAlignment="Top" Width="399" Click="Button_Click_3"/>
     </Grid>
 </Window>

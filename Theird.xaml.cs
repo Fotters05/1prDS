@@ -1,6 +1,7 @@
 ﻿using Praktika1_DataSet.praktika1_datasetDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,34 @@ namespace Praktika1_DataSet
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Window.GetWindow(this).Close();
+        }
+        private void Dobavlenie_Click(object sender, RoutedEventArgs e)
+        {
+            string FIRST_NAME = FirstN.Text;
+            string MIDDLENAME = MidN.Text;
+            string SURNAME = SurN.Text;
+
+
+            CLIENTS.InsertQuery(FIRST_NAME, MIDDLENAME, SURNAME);
+            SushiDataGrid.ItemsSource = CLIENTS.GetData();
+        }
+
+        private void Udalenie_Click(object sender, RoutedEventArgs e)
+        {
+            object ID_CLIENTS = (SushiDataGrid.SelectedItem as DataRowView).Row[0];
+            CLIENTS.DeleteQuery(Convert.ToInt32(ID_CLIENTS));
+            SushiDataGrid.ItemsSource = CLIENTS.GetData();
+        }
+
+        private void Update(object sender, RoutedEventArgs e)
+        {
+            string FIRST_NAME = FirstN.Text;
+            string MIDDLENAME = MidN.Text;
+            string SURNAME = SurN.Text;
+
+            object ID_SUSHIBARS = (SushiDataGrid.SelectedItem as DataRowView).Row[0];
+            CLIENTS.UpdateQuery(FIRST_NAME, MIDDLENAME, SURNAME, Convert.ToInt32(ID_SUSHIBARS));
+            SushiDataGrid.ItemsSource = CLIENTS.GetData();
         }
     }
 }

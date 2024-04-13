@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Praktika1_DataSet.praktika1_datasetDataSetTableAdapters;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Praktika1_DataSet
 {
@@ -30,6 +32,32 @@ namespace Praktika1_DataSet
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Window.GetWindow(this).Close();
+        }
+
+        private void Dobavlenie_Click(object sender, RoutedEventArgs e)
+        {
+            string TITLE = NameTbx.Text;
+            int WORKINGHOURSE = int.Parse(WorkingHourse.Text);
+
+            SUSHIBARS.InsertQuery(TITLE, WORKINGHOURSE);
+            SushiDataGrid.ItemsSource = SUSHIBARS.GetData();
+        }
+
+        private void Udalenie_Click(object sender, RoutedEventArgs e)
+        {
+            object ID_SUSHIBARS = (SushiDataGrid.SelectedItem as DataRowView).Row[0];
+            SUSHIBARS.DeleteQuery(Convert.ToInt32(ID_SUSHIBARS));
+            SushiDataGrid.ItemsSource = SUSHIBARS.GetData();
+        }
+
+        private void Update(object sender, RoutedEventArgs e)
+        {
+            string TITLE = TitleTbx.Text;
+            int WORKINGHOURSE = int.Parse(WH.Text);
+
+            object ID_SUSHIBARS = (SushiDataGrid.SelectedItem as DataRowView).Row[0];
+            SUSHIBARS.UpdateQuery (TITLE, WORKINGHOURSE, Convert.ToInt32(ID_SUSHIBARS));
+            SushiDataGrid.ItemsSource = SUSHIBARS.GetData();
         }
     }
 }
